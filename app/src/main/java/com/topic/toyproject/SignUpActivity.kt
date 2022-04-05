@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.topic.toyproject.databinding.ActivitySignUpBinding
 import com.topic.toyproject.utils.ServerUtil
+import org.json.JSONObject
 
 class SignUpActivity : BaseActivity() {
 
@@ -24,7 +25,16 @@ class SignUpActivity : BaseActivity() {
             val inputPw = binding.edtPassword.text.toString()
             val inputNickname = binding.edtNickname.text.toString()
 
-            ServerUtil.
+            ServerUtil.putRequestSignUp(
+                inputEmail,
+                inputPw,
+                inputNickname,
+                object : ServerUtil.JsonResponseHandler{
+                    override fun onResponse(jsonObj: JSONObject) {
+
+                    }
+
+                })
         }
 
     }
