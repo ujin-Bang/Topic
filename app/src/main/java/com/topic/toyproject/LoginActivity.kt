@@ -51,7 +51,10 @@ class LoginActivity : BaseActivity() {
                             Toast.makeText(mContext, "${nickname}님 환영합니다!", Toast.LENGTH_SHORT)
                                 .show()
                         }
-//                        메인화면으로 진입
+//                        메인화면으로 진입=> 클래스의 객체화(UI동작으로 치지 않는다, runOnUiTtread안에 안 넣어도 되고 넣어도 됨)
+
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
 
                     } else {
                         val message = jsonObj.getString("message")
