@@ -2,6 +2,7 @@ package com.topic.toyproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.DisplayNameSources.EMAIL
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.topic.toyproject.databinding.ActivitySignUpBinding
@@ -19,6 +20,18 @@ class SignUpActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+
+        binding.btnEmailCheck.setOnClickListener {
+
+//            입력한 이메일값 추출
+            val inputEmail = binding.edtEmail.text.toString()
+
+//            서버에 중복확인 기능(/user_check - GET) API활용 => ServerUtil에 함수 추가, 가져다 활용
+//            그 응답 code값에 따라 다른 문구 배치
+
+            ServerUtil.getRequestDuplicatedCheck("EMAIL", inputEmail, null )
+
+        }
 
         binding.btnSignUp.setOnClickListener {
 
