@@ -3,7 +3,9 @@ package com.topic.toyproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.DisplayNameSources.EMAIL
+import android.util.Log
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.topic.toyproject.databinding.ActivitySignUpBinding
 import com.topic.toyproject.utils.ServerUtil
@@ -20,6 +22,10 @@ class SignUpActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+
+        binding.edtEmail.addTextChangedListener {
+            Log.d("입력내용", it.toString())
+        }
 
         binding.btnEmailCheck.setOnClickListener {
 
