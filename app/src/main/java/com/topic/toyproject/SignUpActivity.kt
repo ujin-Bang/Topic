@@ -2,6 +2,7 @@ package com.topic.toyproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.topic.toyproject.databinding.ActivitySignUpBinding
 import com.topic.toyproject.utils.ServerUtil
@@ -31,6 +32,21 @@ class SignUpActivity : BaseActivity() {
                 inputNickname,
                 object : ServerUtil.JsonResponseHandler{
                     override fun onResponse(jsonObj: JSONObject) {
+
+//                        회원가입 성공/ 실패 분기
+                        val code = jsonObj.getInt("code")
+
+                        if (code == 200){
+
+                        }
+                        else {
+                            val message = jsonObj.getString("message")
+
+                            runOnUiThread {
+                                Toast.makeText(mContext, "실패사유 : ${message}", Toast.LENGTH_SHORT).show()
+
+                            }
+                        }
 
                     }
 
