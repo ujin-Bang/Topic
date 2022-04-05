@@ -8,7 +8,7 @@ import com.topic.toyproject.databinding.ActivityMainBinding
 import com.topic.toyproject.utils.ServerUtil
 import org.json.JSONObject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setValues()
     }
     
-    fun setupEvents(){
+    override fun setupEvents(){
         
         binding.btnLogin.setOnClickListener { 
 //            id/pw 추출
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
         
     }
-    fun setValues(){
+    override fun setValues(){
         
     }
 }
