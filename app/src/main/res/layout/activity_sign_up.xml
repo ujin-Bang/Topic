@@ -47,11 +47,51 @@
             android:text="비밀번호"
             android:layout_marginTop="15dp"/>
 
-        <EditText
-            android:id="@+id/edtPassword"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="8글자 이상 입력"/>
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="5글자 이상 입력해주세요"/>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgOne"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/number_circle_one_icon"/>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgTwo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/number_circle_two_icon"/>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgThree"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/number_circle_three_icon"/>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgFour"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/number_circle_four_icon"/>
+            <ImageView
+                android:id="@+id/imgOk"
+                android:visibility="gone"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ok_circle_icon"/>
+
+        </LinearLayout>
+
 
         <TextView
             android:layout_marginTop="10dp"
