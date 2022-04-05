@@ -124,7 +124,7 @@ class ServerUtil {
 //        이메일 or 닉네임 중복 검사 함수
         fun getRequestDuplicatedCheck(type: String, inputValue: String, handler: JsonResponseHandler?){
 
-//            1)어느 주소로 가야하는가? + 어떤 파라미터를 첨부하는가? 도 주소에 같이 포함.
+//            1) 어느 주소로 가야하는가? + 어떤 파라미터를 첨부하는가? 도 주소에 같이 포함.
 //          =>라이브러리의 도움을 받자. HttpUrl클래스 (OKHttp 소속)
 
             val urlBuilder = "${BASE_URL}/user_check".toHttpUrlOrNull()!!.newBuilder()
@@ -134,7 +134,32 @@ class ServerUtil {
 
             val urlString = urlBuilder.toString()
 
-            Log.d("완성된 URL", urlString)
+//            2) 요청 정보 정리 > Request 생성
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .build()
+
+//             3)Request완성 > 서버에 호출, 응답을 화면에 넘기자.
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+
+                }
+
+            })
+
+
         }
     }
 
