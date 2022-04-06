@@ -30,9 +30,7 @@ class MainActivity : BaseActivity() {
                 val userObj = dataObj.getJSONObject("user")
                 val nickname = userObj.getString("nick_name")
 
-                runOnUiThread {
-                    binding.txtLoginUserNickname.text = nickname
-                }
+
             }
 
         })
