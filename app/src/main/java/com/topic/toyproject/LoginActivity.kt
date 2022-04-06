@@ -85,5 +85,11 @@ class LoginActivity : BaseActivity() {
 
     override fun setValues() {
 
+//        이전에 설정한 자동로그인 여부를 미리체크해두자.
+//        껏다 켜도 계속 반영 => 반영구적으로 저장 => SharedPrefferences에서 관리
+
+//        저장되어 있는 자동로그인 여부 값을 체크박스에 반영
+        binding.autoLoginCheckBox.isChecked = ContextUtil.getAutoLogin(mContext)
+
     }
 }
