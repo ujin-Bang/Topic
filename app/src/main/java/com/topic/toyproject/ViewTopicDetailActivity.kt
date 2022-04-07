@@ -26,6 +26,16 @@ class ViewTopicDetailActivity : BaseActivity() {
     }
     override fun setupEvents() {
 
+//        btnVote1클릭 => 첫 진영의 id값을 찾아서 거기에 투표.
+//        서버에 전달 => API활용
+        binding.btnVoteCount.setOnClickListener {
+
+//            서버의 투표API 호출
+
+//            투표현황 새로고침(응답)
+
+        }
+
     }
 
     override fun setValues() {
