@@ -3,6 +3,7 @@ package com.topic.toyproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.topic.toyproject.databinding.ActivityViewTopicDetailBinding
 import com.topic.toyproject.datas.TopicData
 
@@ -22,6 +23,8 @@ class ViewTopicDetailActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+        binding.txtTitle.text = mTopicData.title
+        Glide.with(mContext).load(mTopicData.imageURL).into(binding.imgTopicBackground)
 
     }
 
