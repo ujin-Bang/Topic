@@ -261,6 +261,7 @@ class ServerUtil {
 
         fun postRequestVote( context: Context, sideId: Int, handler: JsonResponseHandler?){
 
+
             val urlString = "${BASE_URL}/topic_vote"
 
             val formData = FormBody.Builder()
@@ -270,9 +271,8 @@ class ServerUtil {
             val request = Request.Builder()
                 .url(urlString)
                 .post(formData)
-                .header("X-Http-Token", ContextUtil.getToken(context))
+                .header("X-Http-Token",ContextUtil.getToken(context))
                 .build()
-
 
             val client = OkHttpClient()
 
@@ -283,7 +283,7 @@ class ServerUtil {
 
                 override fun onResponse(call: Call, response: Response) {
 
-
+//
                     val bodyString = response.body!!.string()
 
                     val jsonObj = JSONObject( bodyString )
@@ -298,6 +298,8 @@ class ServerUtil {
 
 
         }
+
+
 
     }
 

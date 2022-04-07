@@ -38,7 +38,7 @@ class ViewTopicDetailActivity : BaseActivity() {
 //                    토스트로 서버가 알려준 현재상황( 신규투표 or 재투표 or 취소 등)
                     val message = jsonObj.getString("message")
                     runOnUiThread {
-                        Toast.makeText(mContext, "서버응답 : ${message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(mContext, " ${message}", Toast.LENGTH_SHORT).show()
                     }
 
 //                    변경된 득표현황을 다시 불러오자.
@@ -48,6 +48,23 @@ class ViewTopicDetailActivity : BaseActivity() {
             })
 //            투표현황 새로고침(응답)
 
+        }
+
+//        2번진영 선택시 , 그 진영에 투표하기
+
+        binding.btnVoteCount2.setOnClickListener {
+
+            ServerUtil.postRequestVote(mContext, mTopicData.sideList[1].id, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+                    val message = jsonObj.getString("message")
+                    runOnUiThread {
+                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+
+                    }
+                    getTopicDetailFromServer()
+                }
+
+            })
         }
 
     }
