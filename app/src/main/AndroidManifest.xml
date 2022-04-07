@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Topic"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ViewTopicDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -21,7 +24,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"
@@ -33,9 +35,7 @@
             android:theme="@style/Theme.Topic.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
