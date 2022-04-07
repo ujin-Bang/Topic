@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.topic.toyproject.databinding.ActivityViewTopicDetailBinding
 import com.topic.toyproject.datas.TopicData
+import com.topic.toyproject.utils.ServerUtil
+import org.json.JSONObject
 
 class ViewTopicDetailActivity : BaseActivity() {
 
@@ -23,13 +25,25 @@ class ViewTopicDetailActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
-        binding.txtTitle.text = mTopicData.title
-        Glide.with(mContext).load(mTopicData.imageURL).into(binding.imgTopicBackground)
 
     }
 
     override fun setValues() {
 
+        binding.txtTitle.text = mTopicData.title
+        Glide.with(mContext).load(mTopicData.imageURL).into(binding.imgTopicBackground)
+
+        getTopicDetailFromServer()
+
+    }
+
+    fun getTopicDetailFromServer(){
+        ServerUtil.getRequestTopicDetail(mContext,mTopicData.id, object : ServerUtil.JsonResponseHandler{
+            override fun onResponse(jsonObj: JSONObject) {
+
+            }
+
+        })
     }
 
 
