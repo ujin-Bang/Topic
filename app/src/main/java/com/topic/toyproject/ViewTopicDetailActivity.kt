@@ -31,7 +31,12 @@ class ViewTopicDetailActivity : BaseActivity() {
         binding.btnVoteCount.setOnClickListener {
 
 //            서버의 투표API 호출
+            ServerUtil.postRequestVote(mContext, mTopicData.sideList[0].id, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
 
+                }
+
+            })
 //            투표현황 새로고침(응답)
 
         }
