@@ -43,9 +43,13 @@ class ViewTopicDetailActivity : BaseActivity() {
         binding.txtTitle.text = mTopicData.title
         Glide.with(mContext).load(mTopicData.imageURL).into(binding.imgTopicBackground)
 
-//        1번진영 제목,, 2번진영 제목
+//        1번진영 제목, 2번진영 제목
         binding.txtSide01.text = mTopicData.sideList[0].title
         binding.txtSide02.text = mTopicData.sideList[1].title
+
+//        1번진영 득표수, 2번진영 득표수
+        binding.txtVoteCount1.text = "${mTopicData.sideList[0].voteCount}표"
+        binding.txtVoteCount2.text = "${mTopicData.sideList[1].voteCount}표"
 
     }
 
