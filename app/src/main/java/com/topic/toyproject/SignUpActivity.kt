@@ -97,7 +97,20 @@ class SignUpActivity : BaseActivity() {
 
         }
 
+        binding.edtPassword.addTextChangedListener {
 
+            val inputPw = binding.edtPassword.text.toString()
+
+            if(inputPw.length>= 7) {
+                binding.imgOk.visibility = View.VISIBLE
+            }
+            else {
+                binding.imgOk.visibility = View.GONE
+            }
+
+
+
+        }
 
         binding.btnSignUp.setOnClickListener {
 

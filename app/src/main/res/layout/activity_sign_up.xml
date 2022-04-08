@@ -57,7 +57,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="5글자 이상 입력해주세요"/>
+                android:hint="7글자 이상 입력해주세요"/>
 
             <ImageView
                 android:visibility="gone"
