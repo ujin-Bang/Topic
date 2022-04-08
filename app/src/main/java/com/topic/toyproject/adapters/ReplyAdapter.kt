@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.topic.toyproject.R
 import com.topic.toyproject.datas.ReplyData
 import com.topic.toyproject.datas.TopicData
+import java.util.*
 
 class ReplyAdapter(
     val mContext: Context,
@@ -31,10 +32,15 @@ class ReplyAdapter(
         val txtSelectedSide = row.findViewById<TextView>(R.id.txtSelectedSide)
         val txtWriterNickname = row.findViewById<TextView>(R.id.txtWriterNickname)
         val txtReplyContent = row.findViewById<TextView>(R.id.txtReplyContent)
+        val txtCreatedAt = row.findViewById<TextView>(R.id.txtCreatedAt)
 
         txtReplyContent.text = data.content
         txtWriterNickname.text = data.writer.nickname
         txtSelectedSide.text = "[${data.selectedSide.title}]"
+
+//        임시 - 작성일자만 "2022-03-10" 형태로 표현 => 연/ 월/ 일 데이터로 가공
+//        월은 1작게 나옴 . +1로 보정
+        txtCreatedAt.text = "${data.createAt.get(Calendar.YEAR)}-${data.createAt.get(Calendar.MONTH)+1}-${data.createAt.get(Calendar.DAY_OF_MONTH)}"
 
         return row
     }
