@@ -50,11 +50,11 @@ class ReplyAdapter(
 //        양식2) 220305
 //        양식3) 3월 5일 오전 2시 5분
 //        양식4) 21년 3/5 (토) - 18:05
-        val sdf = SimpleDateFormat("yy년 M/D (E) - HH:mm" )
+//        val sdf = SimpleDateFormat("yy년 M/D (E) - HH:mm" )
 
 //        sdf.format(Date객체) => 지정해둔 양식의 String으로 가공
 //        createdAt : Calendar / format의 파라미터 : Date => Calendar의 내용물인 time변수가 Date.
-        txtCreatedAt.text = sdf.format(data.createAt.time)
+        txtCreatedAt.text = data.getFormattedCreatedAt()
 
         return row
     }
