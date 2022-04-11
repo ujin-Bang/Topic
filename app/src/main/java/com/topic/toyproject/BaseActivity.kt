@@ -1,5 +1,6 @@
 package com.topic.toyproject
 
+import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -13,6 +14,15 @@ abstract class BaseActivity: AppCompatActivity() {
 
 //    미리 mContext변수에 화면에 this를 담아두고 => 모든 액티비티에 상속으로 물려주자.
     val mContext = this
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if(supportActionBar != null){
+            setCustomActionBar()
+
+        }
+    }
 
 //    setupEvents / setValues 힘수를 만들어두고, 물려주자.
 //    실제 함수를 구현해서 물려줘봐야 오버라이딩 해서 사용한다.
