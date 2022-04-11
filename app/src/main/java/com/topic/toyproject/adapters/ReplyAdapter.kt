@@ -1,6 +1,7 @@
 package com.topic.toyproject.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -113,6 +114,11 @@ class ReplyAdapter(
         else{
             txtHateCount.setTextColor( ContextCompat.getColor(mContext, R.color.deepp_dark_gray))
             txtHateCount.setBackgroundResource(R.drawable.dark_gray_border_box)
+        }
+
+        txtReReplyCount.setOnClickListener {
+
+            val myInent = Intent(mContext, )
         }
 
         return row
