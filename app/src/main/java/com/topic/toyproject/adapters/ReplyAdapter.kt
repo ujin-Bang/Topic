@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.topic.toyproject.R
 import com.topic.toyproject.ViewTopicDetailActivity
@@ -93,6 +94,17 @@ class ReplyAdapter(
 
             })
         }
+//        좋아요가 눌렸는지 아닌지에 따라 글씨 색상 변경
+         if(data.isMyLike){
+
+             txtLikeCount.setTextColor( ContextCompat.getColor(mContext, R.color.naver_red))
+         }
+        else{
+
+             txtLikeCount.setTextColor( ContextCompat.getColor(mContext, R.color.deepp_dark_gray))
+
+         }
+
         return row
     }
 }
