@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 import com.topic.toyproject.R
 import com.topic.toyproject.datas.ReplyData
 import com.topic.toyproject.datas.TopicData
+import com.topic.toyproject.utils.ServerUtil
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -63,6 +65,14 @@ class ReplyAdapter(
         txtLikeCount.text = "좋아요 ${data.likeCount}"
         txtHateCount.text = "싫어요 ${data.hateCount}"
 
+        txtLikeCount.setOnClickListener {
+            ServerUtil.postRequestLikeOrHate(mContext,data.id, true, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+
+                }
+
+            })
+        }
         return row
     }
 }
