@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Topic"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditReplyActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewTopicDetailActivity"
             android:exported="false" />
         <activity
@@ -35,7 +38,7 @@
             android:theme="@style/Theme.Topic.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
