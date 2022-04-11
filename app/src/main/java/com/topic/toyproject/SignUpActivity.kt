@@ -134,7 +134,7 @@ class SignUpActivity : BaseActivity() {
             val inputNickname = binding.edtNickname.text.toString()
 
 
-            if (inputPw.isEmpty()|| inputPw.length < 7) {
+            if (inputPw.length < 7) {
                 Toast.makeText(mContext, "비밀번호를 입력해주세요.(7글자이상)", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
