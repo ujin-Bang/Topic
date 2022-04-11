@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.topic.toyproject.R
+import com.topic.toyproject.ViewTopicDetailActivity
 import com.topic.toyproject.datas.ReplyData
 import com.topic.toyproject.datas.TopicData
 import com.topic.toyproject.utils.ServerUtil
@@ -69,6 +70,25 @@ class ReplyAdapter(
             ServerUtil.postRequestLikeOrHate(mContext,data.id, true, object : ServerUtil.JsonResponseHandler{
                 override fun onResponse(jsonObj: JSONObject) {
 
+//                  무조건 댓글 목록 새로고침
+//                   Adapter 코딩 => 액티비티의 기능 실행
+
+//                    어댑터 객체화시, mContext 변수에 어느 화면에서 사용하는지 대입
+//                    mContext: Context타입. 대입 객체: ViewTopic액티비티 객체 => 다형성
+
+//                    부모 형태의 변수에 담긴 자식 객체는 캐스팅을 통해서 원상복구 가능.
+//                    자식에서 만든 별도의 함수들을 다시 사용 가능
+
+                    (mContext as ViewTopicDetailActivity).getTopicDetailFromServer()
+                }
+
+            })
+        }
+        txtHateCount.setOnClickListener {
+            ServerUtil.postRequestLikeOrHate(mContext,data.id, false, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+
+                    (mContext as ViewTopicDetailActivity).getTopicDetailFromServer()
                 }
 
             })
