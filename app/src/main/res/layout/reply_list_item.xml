@@ -65,9 +65,11 @@
             android:layout_height="wrap_content"
             android:background="@drawable/dark_gray_border_box"
             android:layout_marginEnd="5dp"
+            android:padding="10dp"
             android:text="좋아요 0"/>
 
         <TextView
+            android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/dark_gray_border_box"
