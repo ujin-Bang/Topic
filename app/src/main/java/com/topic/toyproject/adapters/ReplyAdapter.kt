@@ -94,16 +94,26 @@ class ReplyAdapter(
 
             })
         }
-//        좋아요가 눌렸는지 아닌지에 따라 글씨 색상 변경
+//        좋아요가 눌렸는지 아닌지에 따라 글씨 색상 변경 / 배경 drawable도 설정
          if(data.isMyLike){
 
              txtLikeCount.setTextColor( ContextCompat.getColor(mContext, R.color.naver_red))
+             txtLikeCount.setBackgroundResource(R.drawable.naver_red_border_box)
          }
         else{
 
              txtLikeCount.setTextColor( ContextCompat.getColor(mContext, R.color.deepp_dark_gray))
-
+            txtLikeCount.setBackgroundResource(R.drawable.dark_gray_border_box)
          }
+
+        if (data.isMyHate){
+            txtHateCount.setTextColor( ContextCompat.getColor(mContext, R.color.naver_red))
+            txtHateCount.setBackgroundResource(R.drawable.naver_red_border_box)
+        }
+        else{
+            txtHateCount.setTextColor( ContextCompat.getColor(mContext, R.color.deepp_dark_gray))
+            txtHateCount.setBackgroundResource(R.drawable.dark_gray_border_box)
+        }
 
         return row
     }
