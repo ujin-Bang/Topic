@@ -1,5 +1,6 @@
 package com.topic.toyproject
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -13,13 +14,13 @@ abstract class BaseActivity: AppCompatActivity() {
 //    인터페이스가 엮이기 시작하면? this@어느화면인지 추가로 고려.
 
 //    미리 mContext변수에 화면에 this를 담아두고 => 모든 액티비티에 상속으로 물려주자.
-    val mContext = this
+   lateinit var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        mContext = this//화면이 만들어질때 this를 대입
         supportActionBar?.let {
-
 //            supportActionBar변수가 null이 아닐때만 실행할 코드 , 코틀린스러운 문법(if문대신 ?.let 사용)
             setCustomActionBar()
         }
