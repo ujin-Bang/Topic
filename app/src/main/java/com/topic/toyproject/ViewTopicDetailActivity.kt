@@ -98,7 +98,9 @@ class ViewTopicDetailActivity : BaseActivity() {
         binding.replyListView.adapter = mAdapter
 
        setTopicDataToUi()
-        getTopicDetailFromServer()
+
+//        어차피 onResume에서 서버에 연결 예정.
+//        getTopicDetailFromServer()
 
     }
 
@@ -161,6 +163,12 @@ class ViewTopicDetailActivity : BaseActivity() {
                 runOnUiThread {
                     setTopicDataToUi()
                 }
+
+//                mReplyList에 댓글목록이 추가 된다.
+//                => 기존에 다른 댓글이 들어있다면. 그 뒤에 이어서 추가된다.
+//                => 기존 댓글 목록을 전부 삭제하고 나서 추가하자.
+
+                mReplyList.clear()
 //                topicObj 내부에는 replies라는 댓글 목록JSONArray도 들어있다.
 //                mReplyList에 넣어주자.
                 val repliesArr = topicObj.getJSONArray("replies")
@@ -180,5 +188,12 @@ class ViewTopicDetailActivity : BaseActivity() {
         })
     }
 
+//    이 화면에 들어올때 마다, 댓글 목록 새로고침.
+
+    override fun onResume() {
+        super.onResume()
+
+        getTopicDetailFromServer()
+    }
 
 }
