@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.topic.toyproject.databinding.ActivityEditReplyBinding
 import com.topic.toyproject.datas.TopicData
 import com.topic.toyproject.utils.ServerUtil
+import org.json.JSONObject
 
 class EditReplyActivity : BaseActivity() {
 
@@ -36,6 +37,18 @@ class EditReplyActivity : BaseActivity() {
             }
 
 //            입력한 내용을 > 서버 API 호출
+
+            ServerUtil.postRequestTopicReply(
+                mContext,
+                mTopicData.id,
+                inputContent,
+                object : ServerUtil.JsonResponseHandler{
+                    override fun onResponse(jsonObj: JSONObject) {
+
+                    }
+
+                }
+            )
         }
 
     }
